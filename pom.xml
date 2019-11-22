@@ -16,6 +16,7 @@
 
     <modules>
         <module>quadratic-equation</module>
+        <module>reflection</module>
     </modules>
 
     <dependencies>
