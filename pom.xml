@@ -17,6 +17,8 @@
     <modules>
         <module>quadratic-equation</module>
         <module>reflection</module>
+        <module>crazy-lambdas</module>
+        <module>account-analitics</module>
     </modules>
 
     <dependencies>
