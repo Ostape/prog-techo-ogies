@@ -71,9 +71,9 @@ public class LinkedList<T> implements List<T> {
             currentPosition++;
             previousNode = previousNode.nextNode;
         }
-        Node<T> node = previousNode.nextNode;
+        Node<T> nextNode = previousNode.nextNode;
         previousNode.nextNode = newNode;
-        newNode.nextNode = node;
+        newNode.nextNode = nextNode;
     }
 
     /**

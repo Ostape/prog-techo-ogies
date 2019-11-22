@@ -1,5 +1,8 @@
 package com.robosh;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -7,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
@@ -22,7 +24,7 @@ import static java.util.stream.Collectors.*;
 public class FileStats {
 
     private Map<Character, Long> charactersMap;
-
+    private final Logger logger = LoggerFactory.getLogger(FileStats.class);
     /**
      * Creates a new immutable {@link FileStats} objects using data from text file received as a parameter.
      *
@@ -39,7 +41,7 @@ public class FileStats {
             List<String> strings = Files.readAllLines(filePath);
             charactersMap = collectCharactersToCountMap(strings.stream());
         } catch (IOException e) {
-            e.printStackTrace();
+           logger.error(e.getMessage());
         }
     }
 

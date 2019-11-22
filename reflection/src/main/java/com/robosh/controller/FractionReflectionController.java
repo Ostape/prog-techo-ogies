@@ -2,6 +2,8 @@ package com.robosh.controller;
 
 import com.robosh.PerformOperation;
 import com.robosh.entity.Fraction;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FractionReflectionController {
+    private final Logger logger = LoggerFactory.getLogger(FractionReflectionController.class);
     private Fraction fraction;
     private Fraction fraction2;
 
@@ -47,7 +50,7 @@ public class FractionReflectionController {
                     invoke = (Fraction) method.invoke(this.fraction,fraction2);
                     resultMethods.add(invoke);
                 } catch (IllegalAccessException | InvocationTargetException e) {
-                    e.printStackTrace();
+                    logger.error(e.getMessage());
                 }
             }
         }

@@ -6,6 +6,8 @@ import java.util.function.*;
 
 public class CrazyLambdas {
 
+    private CrazyLambdas(){}
+
     /**
      * Returns {@link Supplier} that always supply "Hello"
      *
@@ -31,7 +33,7 @@ public class CrazyLambdas {
      * @return function that converts adds dollar sign
      */
     public static Function<BigDecimal, String> toDollarStringFunction() {
-        return (number) -> "$" + number;
+        return number -> "$" + number;
     }
 
     /**
@@ -43,7 +45,7 @@ public class CrazyLambdas {
      * @return a string predicate
      */
     public static Predicate<String> lengthInRangePredicate(int min, int max) {
-        return (str) -> str.length() >= min && str.length() <= max;
+        return str -> str.length() >= min && str.length() <= max;
     }
 
     /**
@@ -62,7 +64,7 @@ public class CrazyLambdas {
      * @return int operation
      */
     public static IntUnaryOperator boundedRandomIntSupplier() {
-        return (num) -> ThreadLocalRandom.current().nextInt(num);
+        return num -> ThreadLocalRandom.current().nextInt(num);
     }
 
     /**

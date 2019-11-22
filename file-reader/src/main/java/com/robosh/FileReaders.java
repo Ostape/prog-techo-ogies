@@ -6,13 +6,16 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * {@link FileReaders} privides an API that allow to read whole file into a {@link String} by file name.
  */
 public class FileReaders {
 
+    private FileReaders(){}
     /**
      * Returns a {@link String} that contains whole text from the file specified by name.
      *
@@ -21,24 +24,29 @@ public class FileReaders {
      */
     public static String readWholeFile(String fileName) {
         Path filePath = getPathFromFileName(fileName);
+        Stream<String> lines = null;
         try {
-            return Files.lines(filePath)
-                    .collect(Collectors.joining("\n"));
+            lines = Files.lines(filePath);
+            return lines.collect(Collectors.joining("\n"));
         } catch (IOException e) {
-            throw new RuntimeException();
+            throw new FileException();
+        } finally {
+            if (Objects.nonNull(lines)) {
+                lines.close();
+            }
         }
     }
 
     private static Path getPathFromFileName(String fileName) {
         URL fileUrl = FileReaders.class.getClassLoader().getResource(fileName);
         if (fileUrl == null) {
-            throw new RuntimeException("No such URL");
+            throw new FileException("No such URL");
         }
 
         try {
             return Paths.get(fileUrl.toURI());
         } catch (URISyntaxException e) {
-            throw new RuntimeException("No such URI");
+            throw new FileException("No such URI");
         }
     }
 }

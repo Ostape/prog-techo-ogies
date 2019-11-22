@@ -10,7 +10,7 @@ public class EquationServiceTest {
     private EquationConstants equationConstants;
     private double delta = 0.000001;
 
-    @Test(expected = RuntimeException.class)
+    @Test(expected = MyException.class)
     public void shouldThrowRuntimeExceptionWhenDiscriminantLessZero() {
         equationConstants = new EquationConstants(3, -3, 3);
         equationService = new EquationService(equationConstants);

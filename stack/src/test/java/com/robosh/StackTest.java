@@ -12,11 +12,6 @@ import static org.junit.Assert.assertThat;
 public class StackTest {
 	private Stack<Integer> intStack = new LinkedStack<>();
 
-	@Test
-	public void testPushElementOntoEmptyStack() {
-		intStack.push(234);
-	}
-
 	@Test(expected = EmptyStackException.class)
 	public void testPopElementFromEmptyStack() {
 		intStack.pop();

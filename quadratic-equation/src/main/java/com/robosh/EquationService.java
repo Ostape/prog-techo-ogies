@@ -14,11 +14,11 @@ public class EquationService {
 
         double discriminant = b * b - 4 * a * c;
         if(a == 0){
-            throw new RuntimeException("Not quadratic equation");
+            throw new MyException("Not quadratic equation");
         }
 
         if (discriminant < 0){
-            throw new RuntimeException("No roots in this quadratic equation");
+            throw new MyException("No roots in this quadratic equation");
         }
         return calculateRoots(a, b, discriminant);
     }
