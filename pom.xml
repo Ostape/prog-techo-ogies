@@ -19,6 +19,8 @@
         <module>reflection</module>
         <module>crazy-lambdas</module>
         <module>account-analitics</module>
+        <module>file-reader</module>
+        <module>file-stats</module>
     </modules>
 
     <dependencies>
