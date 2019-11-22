@@ -21,6 +21,9 @@
         <module>account-analitics</module>
         <module>file-reader</module>
         <module>file-stats</module>
+        <module>linked-list</module>
+        <module>linked-queue</module>
+        <module>stack</module>
     </modules>
 
     <dependencies>
