@@ -1,4 +1,4 @@
-package com.robosh.model;
+package com.robosh;
 
 public enum Sex {
     MALE,

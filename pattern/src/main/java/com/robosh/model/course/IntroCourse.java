@@ -1,4 +1,4 @@
-package com.robosh.model.entity.course;
+package com.robosh.model.course;
 
 public class IntroCourse implements Course {
     @Override

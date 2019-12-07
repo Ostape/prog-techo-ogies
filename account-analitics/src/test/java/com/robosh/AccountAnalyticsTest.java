@@ -2,8 +2,6 @@ package com.robosh;
 
 
 import com.robosh.exception.EntityNotFoundException;
-import com.robosh.model.Account;
-import com.robosh.model.Sex;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

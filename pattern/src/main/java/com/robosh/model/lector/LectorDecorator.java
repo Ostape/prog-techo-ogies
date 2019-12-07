@@ -1,4 +1,4 @@
-package com.robosh.model.entity.lector;
+package com.robosh.model.lector;
 
 public class LectorDecorator implements Lector {
     private Lector lector;

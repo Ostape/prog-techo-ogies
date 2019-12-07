@@ -10,8 +10,7 @@ import static java.util.stream.Collectors.reducing;
 import static java.util.stream.Collectors.toSet;
 
 import com.robosh.exception.EntityNotFoundException;
-import com.robosh.model.Account;
-import com.robosh.model.Sex;
+
 import java.math.BigDecimal;
 import java.time.Month;
 import java.util.Collection;

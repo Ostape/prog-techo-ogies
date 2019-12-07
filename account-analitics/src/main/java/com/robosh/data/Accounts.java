@@ -1,7 +1,7 @@
 package com.robosh.data;
 
-import com.robosh.model.Account;
-import com.robosh.model.Sex;
+import com.robosh.Account;
+import com.robosh.Sex;
 import io.codearte.jfairy.Fairy;
 import io.codearte.jfairy.producer.person.Person;
 
