@@ -1,26 +1,36 @@
 package com.robosh.repository;
 
-import com.robosh.model.course.AdvancedCourse;
-import com.robosh.model.course.IntroCourse;
-import com.robosh.model.course.MiddleCourse;
 import com.robosh.model.student.Student;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRepository {
-    public List<Student> getAllStudents() {
+
+    public List<Student> getIntoCourseStudents() {
         List<Student> students = new ArrayList<>();
         Student firstStudent = new Student("Orest", "Shemeliuk");
-        firstStudent.setCourse(new IntroCourse());
         Student secondStudent = new Student("Petro", "Pavlovich");
-        secondStudent.setCourse(new MiddleCourse());
-        Student thirdStudent = new Student("Olya", "Ishchenko");
-        thirdStudent.setCourse(new AdvancedCourse());
-
         students.add(firstStudent);
         students.add(secondStudent);
-        students.add(thirdStudent);
+        return students;
+    }
+
+    public List<Student> getMiddleCourseStudents() {
+        List<Student> students = new ArrayList<>();
+        Student firstStudent = new Student("Yulia", "Andriivna");
+        Student secondStudent = new Student("Yak", "Papa");
+        students.add(firstStudent);
+        students.add(secondStudent);
+        return students;
+    }
+
+    public List<Student> getAdvancedCourseStudents() {
+        List<Student> students = new ArrayList<>();
+        Student firstStudent = new Student("Alex", "Mar");
+        Student secondStudent = new Student("Yegor", "Mol");
+        students.add(firstStudent);
+        students.add(secondStudent);
         return students;
     }
 }
