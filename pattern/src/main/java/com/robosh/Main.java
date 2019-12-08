@@ -9,6 +9,8 @@ import com.robosh.repository.LectorRepository;
 import com.robosh.repository.StudentRepository;
 import com.robosh.view.CoursesView;
 import com.robosh.view.MainView;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.Scanner;
 
@@ -16,8 +18,16 @@ public class Main {
     private MainController mainController;
     private CoursesController coursesController;
     private Student student;
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void main(String[] args) {
+        for (int i = 0; i < 100; i++) {
+            logger.error("Starting application");
+            logger.trace("ssss");
+            logger.fatal("ssss");
+            logger.debug("sssssssssssss");
+            logger.info("sssssssss" + i);
+        }
         new Main().run();
     }
 
@@ -41,6 +51,7 @@ public class Main {
     }
 
     private void init() {
+        logger.debug("Init classes");
         student = new Student("New Student", "New Student");
         mainController = new MainController(new Scanner(System.in), new MainView());
         CoursesView coursesView = new CoursesView();
@@ -49,6 +60,7 @@ public class Main {
     }
 
     private void showAllCourses() {
+        logger.debug("showing all courses");
         coursesController.showAllCourses();
     }
 
