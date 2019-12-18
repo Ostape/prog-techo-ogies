@@ -11,6 +11,8 @@ import com.robosh.view.CoursesView;
 import com.robosh.view.MainView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
 
 import java.util.Scanner;
 
@@ -19,16 +21,32 @@ public class Main {
     private CoursesController coursesController;
     private Student student;
     private static final Logger logger = LogManager.getLogger(Main.class);
+    private static final Marker USER_MARKER = MarkerManager.getMarker("USER");
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; i++) {
-            logger.error("Starting application");
-            logger.trace("ssss");
-            logger.fatal("ssss");
-            logger.debug("sssssssssssss");
-            logger.info("sssssssss" + i);
+//        for (int i = 0; i < 100; i++) {
+//            logger.error(USER_MARKER,"Starting application");
+//            logger.trace("ssss");
+//            logger.fatal("ssss");
+//            logger.debug("sssssssssssss");
+//            logger.info("sssssssss" + i);
+//        }
+//        new Main().run();
+
+        System.out.println(method());
+
+    }
+
+    public static int method(){
+        try {
+            if (1 == 1)
+            throw new Exception();
+        } catch (Exception e){
+            return 1;
+        } finally {
+            System.out.println("aaaaa");
         }
-        new Main().run();
+        return 5;
     }
 
     private void run() {
