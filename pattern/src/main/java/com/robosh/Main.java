@@ -24,29 +24,14 @@ public class Main {
     private static final Marker USER_MARKER = MarkerManager.getMarker("USER");
 
     public static void main(String[] args) {
-//        for (int i = 0; i < 100; i++) {
-//            logger.error(USER_MARKER,"Starting application");
-//            logger.trace("ssss");
-//            logger.fatal("ssss");
-//            logger.debug("sssssssssssss");
-//            logger.info("sssssssss" + i);
-//        }
-//        new Main().run();
-
-        System.out.println(method());
-
-    }
-
-    public static int method(){
-        try {
-            if (1 == 1)
-            throw new Exception();
-        } catch (Exception e){
-            return 1;
-        } finally {
-            System.out.println("aaaaa");
+        for (int i = 0; i < 100; i++) {
+            logger.error(USER_MARKER,"Starting application");
+            logger.trace(USER_MARKER,"trace" + i);
+            logger.fatal(USER_MARKER,"fatal" + i);
+            logger.debug(USER_MARKER,"debug" + i);
+            logger.info(USER_MARKER,"sssssssss" + i);
         }
-        return 5;
+        new Main().run();
     }
 
     private void run() {
