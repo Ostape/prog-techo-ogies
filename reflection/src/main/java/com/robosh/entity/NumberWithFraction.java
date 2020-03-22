@@ -1,21 +1,20 @@
 package com.robosh.entity;
 
-import lombok.Data;
 
-@Data
-public class NumberWithFraction extends Fraction {
+public class NumberWithFraction extends NumberDecorator {
     private int intNumber;
 
-    public NumberWithFraction() {
-    }
-
-    public NumberWithFraction(int numerator, int denominator, int intNumber) {
-        super(numerator, denominator);
+    public NumberWithFraction(Number number, int intNumber) {
+        super(number);
         this.intNumber = intNumber;
     }
 
     @Override
-    public String toString() {
-        return intNumber + "," + numerator + "/" + denominator;
+    public String showNumber() {
+        return intNumber + "|" + super.showNumber();
+    }
+
+    public int getIntNumber() {
+        return intNumber;
     }
 }

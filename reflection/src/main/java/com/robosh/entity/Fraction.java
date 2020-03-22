@@ -1,61 +1,49 @@
 package com.robosh.entity;
 
-import com.robosh.PerformOperation;
-import lombok.Builder;
-import lombok.Data;
 
-@Data
-@Builder
-public class Fraction {
-    protected int numerator; //чисельник
-    protected int denominator; // знаменник
+import java.util.Objects;
 
-    public Fraction() {
-    }
+public class Fraction implements Number {
+    private int numerator; //чисельник
+    private int denominator; // знаменник
 
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
-    @PerformOperation
-    public Fraction sumFractions(Fraction fraction) {
-        int numeratorNew = numerator * fraction.denominator + fraction.numerator * denominator;
-        int denominatorNew = fraction.denominator * denominator;
-        return createNewReductionFraction(numeratorNew, denominatorNew);
+    @Override
+    public String showNumber() {
+        return numerator + "/" + denominator;
     }
 
-    @PerformOperation
-    public Fraction minusFractions(Fraction fraction) {
-        int numeratorNew = numerator * fraction.denominator - fraction.numerator * denominator;
-        int denominatorNew = fraction.denominator * denominator;
-        return createNewReductionFraction(numeratorNew, denominatorNew);
+    public int getNumerator() {
+        return numerator;
     }
 
-    private Fraction createNewReductionFraction(int numeratorNew, int denominatorNew) {
-        int gcd = gcd(Math.abs(numeratorNew), Math.abs(denominatorNew));
-        if (gcd != 1) {
-            numeratorNew /= gcd;
-            denominatorNew /= gcd;
-        }
-        return new Fraction(numeratorNew, denominatorNew);
+    public int getDenominator() {
+        return denominator;
     }
 
-    private int gcd(int a, int b) {
-        if (a == 0) {
-            return b;
-        }
-        if (b == 0) {
-            return a;
-        }
-        if (a >= b) {
-            return gcd(a % b, b);
-        }
-        return gcd(a, b % a);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fraction fraction = (Fraction) o;
+        return numerator == fraction.numerator &&
+                denominator == fraction.denominator;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(numerator, denominator);
     }
 
     @Override
     public String toString() {
-        return numerator + "/" + denominator;
+        return "Fraction{" +
+                "numerator=" + numerator +
+                ", denominator=" + denominator +
+                '}';
     }
 }
