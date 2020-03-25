@@ -1,7 +1,6 @@
 package com.robosh.service;
 
 import com.robosh.entity.Fraction;
-import com.robosh.entity.Number;
 
 public class FractionService {
     private static FractionService instance = new FractionService();
@@ -34,5 +33,9 @@ public class FractionService {
         int newNumerator = firstFraction.getNumerator() * secondFraction.getDenominator();
         int newDenominator = firstFraction.getDenominator() * secondFraction.getNumerator();
         return new Fraction(newNumerator, newDenominator);
+    }
+
+    public Fraction getFraction(int numerator, int denominator) {
+        return new Fraction(numerator, denominator);
     }
 }
